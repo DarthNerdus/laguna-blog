@@ -12,15 +12,7 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://stevenf.com/index.xml" />
 	</head>
 	<body>
-		<div id="sitebanner"><a href="http://stevenf.com/">stevenf.com</a></div>
+		<div id="sitebanner"><a href="http://stevenf.com/">Laguna</a></div>
 		<div id="tagline">
-			<b>The personal blog of Steven Frank</b>
-			<br />
-
-			<a href="mailto:stevenf@panic.com">Email</a> -
-			<a href="http://stevenf.com/index.xml">RSS</a> -
-			<a href="http://twitter.com/stevenf/">Twitter</a> -
-			<a href="http://flickr.com/photos/stevenf/">Flickr</a> -
-			<a href="http://live.xbox.com/member/panicsteve/">Xbox</a> -
-			<a href="http://panic.com/">Panic</a>
+			<b>My new Laguna blog</b>
 		</div>

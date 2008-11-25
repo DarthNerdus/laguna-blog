@@ -1,0 +1,12 @@
+Title: Default Post
+
+This is the default post.  It can be found in pages/default.txt
+
+You add new posts by creating additional text files in the pages directory.  Your text files can use Markdown formatting.
+
+Similarly, you can delete a post by just deleting the file from the pages directory.
+
+After you make changes to the pages directory, re-publish your site by running the publish script located at bin/publish.php
+
+Laguna sorts your posts by modification date, so if you change a post, it will float to the top.
+

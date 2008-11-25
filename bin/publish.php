@@ -14,20 +14,20 @@
 
 // Output paths:
 
-$publishDir = "/www/stevenf";				// Index page and RSS feed will go here
+$publishDir = "/www/stevenf/lagoogle";				// Index page and RSS feed will go here
 $archiveDir = "$publishDir/archive";		// Archive pages will go here
 
 // Paths required by this script:
 
-$baseDir = "/www/stevenf/laguna2";			// Laguna's root directory
+$baseDir = "/www/stevenf/lagoogle";			// Laguna's root directory
 $binDir = "$baseDir/bin";					// Path to Laguna's internal scripts
 $pagesDir = "$baseDir/pages";				// Location of source files for posts
 $templatesDir = "$baseDir/templates";		// Location of output templates
 
 // URLs:
 
-$baseURL = "http://stevenf.com";			// Base URL of web site
-$archiveURL = "http://stevenf.com/archive";	// Base URL equivalent of archiveDir
+$baseURL = "http://stevenf.com/lagoogle";			// Base URL of web site
+$archiveURL = "http://stevenf.com/lagoogle/archive";	// Base URL equivalent of archiveDir
 
 // Other configurable options:
 
@@ -45,10 +45,10 @@ $timezone = "PST";							// Used for RSS timestamps
 
 // RSS template fields:
 
-$rssTitle = "stevenf.com";
+$rssTitle = "My RSS Feed";
 $rssLink = $baseURL . "/";
 $rssGenerator = $baseURL . "/";
-$rssDesc = "Steven Frank discusses Macs, gadgets, and general geekery.";
+$rssDesc = "This is the RSS feed for my blog.";
 $rssCopyright = "Copyright 2002-2008";
 $rssLang = "en";
 
