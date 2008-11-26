@@ -337,7 +337,18 @@ print "<div id=\"tagline\"><b>Editor</b></div>";
 		
 printToolbar();
 
-print "<h1>$title<div class=\"time\"><br />$datetime</div></h1>\n";
+if ( $datetime != '' )
+{
+	$bylineDate = date("F j, Y", @filemtime($filename));
+	$bylineTime = date("g:i A",	@filemtime($filename));		
+	
+	print "<h1>$bylineDate<div class=\"time\"><br />$bylineTime</div></h1>\n";
+}
+else
+{
+	print "<h1>$title</h1>";
+}
+
 print "$html\n";
 
 print "</body>\n";
