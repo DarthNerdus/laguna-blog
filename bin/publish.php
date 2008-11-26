@@ -9,48 +9,7 @@
 // Written with Coda: <http://panic.com/coda/>
 //
 
-// Configuration for URLs and filesystem paths.
-// * Do not use trailing slashes.
-
-// Output paths:
-
-$publishDir = "/www/stevenf/lagoogle";				// Index page and RSS feed will go here
-$archiveDir = "$publishDir/archive";		// Archive pages will go here
-
-// Paths required by this script:
-
-$baseDir = "/www/stevenf/lagoogle";			// Laguna's root directory
-$binDir = "$baseDir/bin";					// Path to Laguna's internal scripts
-$pagesDir = "$baseDir/pages";				// Location of source files for posts
-$templatesDir = "$baseDir/templates";		// Location of output templates
-
-// URLs:
-
-$baseURL = "http://stevenf.com/lagoogle";			// Base URL of web site
-$archiveURL = "http://stevenf.com/lagoogle/archive";	// Base URL equivalent of archiveDir
-
-// Other configurable options:
-
-$bylineDateFormat = "F j, Y";				// Date format for post bylines
-$bylineTimeFormat = "g:i A";				// Time format for post bylines
-$inputFileExtension = ".txt";				// File extension on files in 'pages' dir
-$outputFileExtension = ".php";				// File extension to use for published pages
-$defaultPageTitle = "Untitled";				// Used if the page has no 'Title:' metadata
-$maxIndexPagePosts = 5;						// Maximum # of posts to put on the index page
-$maxRSSItems = 15;
-$indexPageTitle = "Home";					// Title to use for the index page
-$archivePageTitle = "Archive";				// Title to use for the archive index page
-$rssFilename = "index.xml";					// Filename to use for RSS feed
-$timezone = "PST";							// Used for RSS timestamps
-
-// RSS template fields:
-
-$rssTitle = "My RSS Feed";
-$rssLink = $baseURL . "/";
-$rssGenerator = $baseURL . "/";
-$rssDesc = "This is the RSS feed for my blog.";
-$rssCopyright = "Copyright 2002-2008";
-$rssLang = "en";
+require_once('config.php');
 
 //
 // Supporting functions

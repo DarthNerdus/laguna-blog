@@ -8,7 +8,7 @@
 		<meta name="DC.title" content="stevenf.com" />
 		<meta name="description" content="Steven Frank discusses Macs, gadgets, and general geekery." />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="/css/default.css?2008091001" />
+		<link rel="stylesheet" type="text/css" href="css/default.css?2008091001" />
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://stevenf.com/index.xml" />
 	</head>
 	<body>

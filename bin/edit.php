@@ -22,28 +22,6 @@ session_set_cookie_params(60 * 60 * 24 * 30);
 session_name("W2Laguna");
 session_start();
 
-if ( count($allowedIPs) > 0 )
-{
-	$ip = $_SERVER['REMOTE_ADDR'];
-	$accepted = false;
-	
-	foreach ( $allowedIPs as $allowed )
-	{
-		if ( strncmp($allowed, $ip, strlen($allowed)) == 0 )
-		{
-			$accepted = true;
-			break;
-		}
-	}
-	
-	if ( !$accepted )
-	{
-		print "<html><body>IP $ip not allowed";
-		print "</body></html>";
-		exit;
-	}
-}
-
 if ( REQUIRE_PASSWORD && !isset($_SESSION['password']) )
 {
 	if ( !defined('W2_PASSWORD_HASH') )
@@ -156,7 +134,7 @@ if ( file_exists($filename) )
 }
 else
 {
-	if ( $action != "save" && $action != "all_name" && $action != "all_date" && $action != "upload" && $action != "new" && $action != "logout" && $action != "uploaded" && $action != "search" )
+	if ( $action != "save" && $action != "all_name" && $action != "all_date" && $action != "upload" && $action != "new" && $action != "logout" && $action != "uploaded" )
 	{
 		$action = "all_date";
 	}
@@ -251,45 +229,6 @@ else if ( $action == "save" )
 
 	$html .= toHTML($newText);
 }
-else if ( $action == "rename" )
-{
-	$html = "<form id=\"rename\" method=\"post\" action=\"" . SELF . "\">";
-	$html .= "<p>Title: <input id=\"title\" type=\"text\" name=\"page\" value=\"" . htmlspecialchars($page) . "\" />";
-	$html .= "<input id=\"rename\" type=\"submit\" value=\"Rename\">";
-	$html .= "<input id=\"cancel\" type=\"button\" onclick=\"history.go(-1);\" value=\"Cancel\" />\n";
-	$html .= "<input type=\"hidden\" name=\"action\" value=\"renamed\" />";
-	$html .= "<input type=\"hidden\" name=\"prevpage\" value=\"" . htmlspecialchars($page) . "\" />";
-	$html .= "</p></form>";
-}
-else if ( $action == "renamed" )
-{
-	$pp = $_REQUEST['prevpage'];
-	$pg = $_REQUEST['page'];
-
-	$prevpage = sanitizeFilename($pp);
-	$prevpage = urlencode($prevpage);
-	
-	$prevfilename = PAGES_PATH . "/$prevpage.txt";
-
-	if ( rename($prevfilename, $filename) )
-	{
-		// Success.  Change links in all pages to point to new page
-		if ( $dh = opendir(PAGES_PATH) )
-		{
-			while ( ($file = readdir($dh)) !== false )
-			{
-				$content = file_get_contents($file);
-				$pattern = "/\[\[" . $pp . "\]\]/g";
-				preg_replace($pattern, "[[$pg]]", $content);
-				file_put_contents($file, $content);
-			}
-		}
-	}
-	else
-	{
-		$html = "<p class=\"note\">Error renaming file</p>\n";
-	}
-}
 else if ( $action == "all" )
 {
 	$html = "<ul>\n";
@@ -353,37 +292,6 @@ else if ( $action == "all_date" )
 	}
 	$html .= "</ul>\n";
 }
-else if ( $action == "search" )
-{
-	$matches = 0;
-	$q = $_REQUEST['q'];
-	$html = "<h1>Search: $q</h1>\n<ul>\n";
-
-	if ( trim($q) != "" )
-	{
-		$dir = opendir(PAGES_PATH);
-		
-		while ( $file = readdir($dir) )
-		{
-			if ( $file{0} == "." )
-				continue;
-
-			$text = file_get_contents(PAGES_PATH . "/$file");
-			
-			if ( eregi($q, $text) )
-			{
-				++$matches;
-				$file = preg_replace("/(.*?)\.txt/", "<a href=\"" . SELF . "/\\1\">\\1</a>", $file);
-				$html .= "<li>$file</li>\n";
-			}
-		}
-		
-		closedir($dir);
-	}
-
-	$html .= "</ul>\n";
-	$html .= "<p>$matches matched</p>\n";
-}
 else
 {
 	$html = toHTML($text);
@@ -397,8 +305,6 @@ else if ( $action == "upload" )
 	$title = "Upload Image";
 else if ( $action == "new" )
 	$title = "New";
-else if ( $action == "search" )
-	$title = "Search";
 else
 {
 	$title = $page;
@@ -429,19 +335,9 @@ print "<body>\n";
 
 printToolbar();
 
-//print "<div class=\"titlebar\">$title <span style=\"font-weight: normal;\">$datetime</span></div>\n";
 print "<h1>$title<div class=\"time\"><br />$datetime</div></h1>\n";
-
-
-//print "<div class=\"main\">\n";
 print "$html\n";
-//print "</div>\n";
 
-print "<form method=\"post\" action=\"" . SELF . "?action=search\">\n";
-//print "<div class=\"searchbar\">";
-print "<br /><hr />Search: <input id=\"search\" type=\"text\" name=\"q\" />";
-//print "</div>";
-print "</form>\n";
 print "</body>\n";
 print "</html>\n";
 
