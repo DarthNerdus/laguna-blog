@@ -49,19 +49,8 @@ define('BASE_PATH', getcwd());					// Omit any trailing slash
 
 // The path to the raw text documents maintained by W2
 define('PAGES_PATH', $pagesDir);					// Omit any trailing slash
-define('BASE_URI', 'http://stevenf.com/laguna2/bin');	// Omit any trailing slash
+define('BASE_URI', $baseURL . '/bin');	// Omit any trailing slash
 define('SELF', BASE_URI . '/edit.php');
-
-/*
-// The name of the page to show as the "Home" page.
-// Value is a string, the title of a page (case-sensitive!)
-define('DEFAULT_PAGE', 'Home');
-
-// The CSS file to load to style the wiki.
-// You can take the default, modify it, and save it under a new name in this directory - then change the value below.
-// Value is a string, the name and/or relative filesystem path to a CSS file.
-*/
-
 define('CSS_FILE', '../../css/default.css');
 define('DISABLE_UPLOADS', false);
 define('VALID_UPLOAD_TYPES', 'image/jpeg,image/pjpeg,image/png,image/gif,application/pdf,application/zip,application/x-diskcopy');

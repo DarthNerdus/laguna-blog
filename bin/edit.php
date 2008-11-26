@@ -44,18 +44,18 @@ function printToolbar()
 	global $upage, $page, $action;
 
 	print "<div id=\"tagline\">";
-	print "<a class=\"tool first\" href=\"" . SELF . "?action=edit&amp;page=$upage\">Edit</a> - ";
-	print "<a class=\"tool\" href=\"" . SELF . "?action=new\">New</a> - ";
+	print "<a href=\"" . SELF . "?action=edit&amp;page=$upage\">Edit This</a> - ";
+	print "<a href=\"" . SELF . "?action=new\">New Page</a> - ";
 
 	if ( !DISABLE_UPLOADS )
-		print "<a class=\"tool\" href=\"" . SELF . "?action=upload\">Upload</a> - ";
+		print "<a href=\"" . SELF . "?action=upload\">Upload</a> - ";
 
- 	print "<a class=\"tool\" href=\"" . SELF . "?action=all_name\">All</a> - ";
-	print "<a class=\"tool\" href=\"" . SELF . "?action=all_date\">Recent</a> - ";
- 	print "<a class=\"tool\" href=\"" . SELF . "\">". DEFAULT_PAGE . "</a>";
+ 	print "<a href=\"" . SELF . "?action=all_name\">All Pages</a> - ";
+	print "<a href=\"" . SELF . "?action=all_date\">Recent</a> - ";
+	print "<a href=\"publish.php\">Publish</a> ";
  	
 	if ( REQUIRE_PASSWORD )
-		print ' - <a class="tool" href="' . SELF . '?action=logout">Logout</a>';
+		print ' - <a href="' . SELF . '?action=logout">Logout</a>';
 		
 	print "</div>\n";
 }
@@ -288,7 +288,7 @@ else if ( $action == "all_date" )
 	arsort($filelist, SORT_NUMERIC);
 	foreach ($filelist as $key => $value)
 	{
-		$html .= "<li>$key <span style=\"font-size: 10px\">(" . date(TITLE_DATE, $value) . ")</span></li>\n";
+		$html .= "<li>$key (" . date(TITLE_DATE, $value) . ")</li>\n";
 	}
 	$html .= "</ul>\n";
 }
@@ -310,7 +310,7 @@ else
 	$title = $page;
 	if ( TITLE_DATE )
 	{
-		$datetime = "<span style=\"font-size: 10px\">" . date(TITLE_DATE, @filemtime($filename)) . "</span>";
+		$datetime = date(TITLE_DATE, @filemtime($filename));
 	}
 }
 
@@ -332,7 +332,9 @@ print "<link type=\"text/css\" rel=\"stylesheet\" href=\"" . BASE_URI . "/" . CS
 print "<title>$title</title>\n";
 print "</head>\n";
 print "<body>\n";
-
+print "<div id=\"sitebanner\">Laguna</div>";
+print "<div id=\"tagline\"><b>Editor</b></div>";
+		
 printToolbar();
 
 print "<h1>$title<div class=\"time\"><br />$datetime</div></h1>\n";

@@ -12,10 +12,10 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://stevenf.com/index.xml" />
 	</head>
 	<body>
-		<div id="sitebanner"><a href="http://stevenf.com/">Laguna</a></div>
+		<div id="sitebanner"><a href="http://stevenf.com/lagoogle">Laguna</a></div>
 		<div id="tagline">
 			<b>My new Laguna blog</b>
-		</div><h1>November 25, 2008<div class="time"><br />4:18 PM</div></h1>
+		</div><h1>November 25, 2008<div class="time"><br />4:26 PM</div></h1>
 <p>This is the default post.  It can be found in pages/default.txt</p>
 
 <p>You add new posts by creating additional text files in the pages directory.  Your text files can use Markdown formatting.</p>

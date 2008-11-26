@@ -12,7 +12,7 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://stevenf.com/index.xml" />
 	</head>
 	<body>
-		<div id="sitebanner"><a href="http://stevenf.com/">Laguna</a></div>
+		<div id="sitebanner"><a href="http://stevenf.com/lagoogle">Laguna</a></div>
 		<div id="tagline">
 			<b>My new Laguna blog</b>
 		</div><h1>All Posts</h1>
