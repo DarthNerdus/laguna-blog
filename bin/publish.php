@@ -166,7 +166,15 @@ foreach ( $pages as $filename => $moddate )
 
 	// Write buffered output to file
 
-	file_put_contents("$archiveDir/$archiveFilename", $output);
+	$errLevel = error_reporting(0);
+	if ( file_put_contents("$archiveDir/$archiveFilename", $output) === false )
+	{
+		print "<p>Could not write to file: $archiveDir/$archiveFilename</p>";
+		print "<p>Please make sure this file is writable by the web server process</p>";
+		die;
+	}
+	error_reporting($errLevel);
+	
 	++$count;
 }
 
@@ -230,7 +238,15 @@ require "$templatesDir/footer.php";
 // Write out buffered text
 
 $output = ob_get_clean();
-file_put_contents("$publishDir/index.php", $output);
+
+$errLevel = error_reporting(0);
+if ( file_put_contents("$publishDir/index.php", $output) === false )
+{
+	print "<p>Could not write to file: $publishDir/index.php</p>";
+	print "<p>Please make sure this file is writable by the web server process</p>";
+	die;
+}
+error_reporting($errLevel);
 
 //
 // !Publish archive index page
@@ -270,7 +286,16 @@ foreach ( $pages as $filename => $moddate )
 require "$templatesDir/footer.php";
 
 $output = ob_get_clean();
-file_put_contents("$archiveDir/index.php", $output);
+
+$errLevel = error_reporting(0);
+if ( file_put_contents("$archiveDir/index.php", $output) === false )
+{
+	print "<p>Could not write to file: $archiveDir/index.php</p>";
+	print "<p>Please make sure this file is writable by the web server process</p>";
+	die;
+}
+error_reporting($errLevel);
+
 
 //
 // !Publish RSS feed
@@ -325,7 +350,16 @@ require "$templatesDir/rss_footer.php";
 // Write out buffered text
 
 $output = ob_get_clean();
-file_put_contents("$publishDir/$rssFilename", $output);
+
+$errLevel = error_reporting(0);
+if ( file_put_contents("$publishDir/$rssFilename", $output) === false )
+{
+	print "<p>Could not write to file: $publishDir/$rssFilename</p>";
+	print "<p>Please make sure this file is writable by the web server process</p>";
+	die;
+}
+error_reporting($errLevel);
+
 
 // Redirect to published site
 

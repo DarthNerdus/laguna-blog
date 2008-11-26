@@ -8,7 +8,7 @@
 		<meta name="DC.title" content="stevenf.com" />
 		<meta name="description" content="Steven Frank discusses Macs, gadgets, and general geekery." />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="css/default.css?2008091001" />
+		<link rel="stylesheet" type="text/css" href="http://stevenf.com/lagoogle/css/default.css?2008091001" />
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://stevenf.com/index.xml" />
 	</head>
 	<body>
@@ -16,7 +16,7 @@
 		<div id="tagline">
 			<b>My new Laguna blog</b>
 		</div><h1><a href="http://stevenf.com/lagoogle/archive/default.php">November 25, 2008</a>
-<div class="time"><br />3:33 PM</div>
+<div class="time"><br />4:18 PM</div>
 </h1>
 <p>This is the default post.  It can be found in pages/default.txt</p>
 
