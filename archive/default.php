@@ -15,8 +15,10 @@
 		<div id="sitebanner"><a href="http://stevenf.com/lagoogle">Laguna</a></div>
 		<div id="tagline">
 			<b>My new Laguna blog</b>
-		</div><h1>November 25, 2008<div class="time"><br />4:26 PM</div></h1>
+		</div><h1>November 25, 2008<div class="time"><br />4:40 PM</div></h1>
 <p>This is the default post.  It can be found in pages/default.txt</p>
+
+<p>You will need to edit the file bin/config.php with appropriate values for your server before editing or publishing will work.</p>
 
 <p>You add new posts by creating additional text files in the pages directory.  Your text files can use Markdown formatting.</p>
 
@@ -25,6 +27,8 @@
 <p>After you make changes to the pages directory, re-publish your site by running the publish script located at bin/publish.php</p>
 
 <p>Laguna sorts your posts by modification date, so if you change a post, it will float to the top.</p>
+
+<p>A makeshift post editor is located at bin/edit.php</p>
 <div id="previous"></div><div id="next"></div><br clear="both" />		<div id="copyright">
 		Copyright &copy; 2002-2008 Me. All rights reserved.
 		</div>

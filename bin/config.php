@@ -1,7 +1,8 @@
 <?php
 
 // Configuration for URLs and filesystem paths.
-// * Do not use trailing slashes.
+
+// *** Do not use trailing slashes on paths or URLs. ***
 
 // Output paths:
 
@@ -43,21 +44,17 @@ $rssDesc = "This is the RSS feed for my blog.";
 $rssCopyright = "Copyright 2002-2008";
 $rssLang = "en";
 
-// Editor stuff
+// Config variables for the editor:
 
 define('BASE_PATH', getcwd());					// Omit any trailing slash
-
-// The path to the raw text documents maintained by W2
-define('PAGES_PATH', $pagesDir);					// Omit any trailing slash
-define('BASE_URI', $baseURL . '/bin');	// Omit any trailing slash
+define('PAGES_PATH', $pagesDir);				// Omit any trailing slash
+define('BASE_URI', $baseURL . '/bin');			// Omit any trailing slash
 define('SELF', BASE_URI . '/edit.php');
 define('CSS_FILE', '../../css/default.css');
 define('DISABLE_UPLOADS', false);
 define('VALID_UPLOAD_TYPES', 'image/jpeg,image/pjpeg,image/png,image/gif,application/pdf,application/zip,application/x-diskcopy');
 define('VALID_UPLOAD_EXTS', 'jpg,jpeg,png,gif,pdf,zip,dmg');
-
 define('TITLE_DATE', 'j-M-Y g:i A');
-
 define('EDIT_ROWS', 30);
 
 define('REQUIRE_PASSWORD', true);
