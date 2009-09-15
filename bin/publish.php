@@ -137,11 +137,16 @@ foreach ( $pages as $filename => $moddate )
 	
 	print formatText($bodyText);
 
+	echo "<br /><br />
+	<p align=\"right\" class=\"small\">$date - ";
+	echo date($bylineTimeFormat, $moddate);
+	echo "</p></div>";
+
 	// Write "previous" link
 	
 	$prevLink = "<div id=\"previous\">";
 	if ( $prevURL[$filename] != "" )
-		$prevLink .= "<a href=\"{$prevURL[$filename]}\">&larr; Earlier</a>";
+		$prevLink .= "<a href=\"{$prevURL[$filename]}\">&larr; Retrograde</a>";
 	else
 		$prevLink .= "";
 	$prevLink .= "</div>";
@@ -150,7 +155,7 @@ foreach ( $pages as $filename => $moddate )
 	
 	$nextLink = "<div id=\"next\">";
 	if ( $nextURL[$filename] != "" )
-		$nextLink .= "<a href=\"{$nextURL[$filename]}\">Later &rarr;</a>";
+		$nextLink .= "<a href=\"{$nextURL[$filename]}\">Anterograde &rarr;</a>";
 	else
 		$nextLink .= "";
 	$nextLink .= "</div>";
@@ -207,14 +212,30 @@ foreach ( $pages as $filename => $moddate )
 	$archiveFilename = str_replace($inputFileExtension, $outputFileExtension, $filename);
 	$date = date($bylineDateFormat, $moddate);
 	
-	echo "<h1><a href=\"$archiveURL/$archiveFilename\">$date</a>\n";
-	echo "<div class=\"time\"><br />" . date($bylineTimeFormat, $moddate) . "</div>\n";
-	echo "</h1>\n";
+	// If the page has 'Title:' metadata, use it.
+	preg_match("/^Title: (.*?)$/m", $bodyText, $matches);
+	$title = trim($matches[1]);
+	
+	if ( $title == "" )
+		$title = $defaultPageTitle;
+	
+	echo "<div id=\"post\">";
+	echo "<h2 class=\"entry-title\"><a href=\"$archiveURL/$archiveFilename\">$title</a>\n";
+	echo "</h2>\n";
+	echo "<div class=\"entry-type\"><a href=\"$archiveURL/$archiveFilename\"><img src=\"http://storage.dodgydev.net/public/text.gif\" alt=\"Permalink\"></a>
+	</div>";
 
 	// Write HTML formatted text
-	
+	echo "<div class=\"entry-content\">";
 	echo formatText($bodyText);
-			
+	echo "<br /><br />
+	<p align=\"right\" class=\"small\">$date - ";
+	echo date($bylineTimeFormat, $moddate);
+	echo "</p></div>";
+	
+	// Back to what it should be
+	$title = $indexPageTitle;
+	
 	// Continue until maximum posts have been added, or until running out of posts,
 	// whichever comes first
 	
@@ -223,14 +244,15 @@ foreach ( $pages as $filename => $moddate )
 
 	if ( ++$count2 == $maxIndexPagePosts || $count == $count2 )
 		break;
-		
-	echo "<br /><br />";
+
 }
 
 // Write footer
 
-echo "<div id=\"previous\"><a href=\"{$prevURL[$lastFilename]}\">&larr; Earlier Posts</a></div>";
-echo "<div id=\"next\"><a href=\"$archiveURL/\">Archive &rarr;</a></div>";
+echo "<div id=\"pagenav\"><div class=\"inside\">";
+echo "<div id=\"back\"><a href=\"{$prevURL[$lastFilename]}\">&larr; Retrograde</a></div>";
+echo "<div id=\"forward\"><a href=\"$archiveURL/\">Anterograde &rarr;</a></div>";
+echo "</div><br>";
 echo "<br clear=\"all\" />";
 
 require "$templatesDir/footer.php";
