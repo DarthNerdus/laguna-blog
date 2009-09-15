@@ -6,20 +6,20 @@
 
 // Output paths:
 
-$publishDir = "/www/stevenf/lagoogle";				// Index page and RSS feed will go here
+$publishDir = "/www/yourdomain.com";				// Index page and RSS feed will go here
 $archiveDir = "$publishDir/archive";		// Archive pages will go here
 
 // Paths required by this script:
 
-$baseDir = "/www/stevenf/lagoogle";			// Laguna's root directory
+$baseDir = "/www/yourdomain.com";			// Laguna's root directory
 $binDir = "$baseDir/bin";					// Path to Laguna's internal scripts
 $pagesDir = "$baseDir/pages";				// Location of source files for posts
 $templatesDir = "$baseDir/templates";		// Location of output templates
 
 // URLs:
 
-$baseURL = "http://stevenf.com/lagoogle";			// Base URL of web site
-$archiveURL = "http://stevenf.com/lagoogle/archive";	// Base URL equivalent of archiveDir
+$baseURL = "http://yourdomain.com";			// Base URL of web site
+$archiveURL = "http://yourdomain.com/archive";	// Base URL equivalent of archiveDir
 
 // Other configurable options:
 
@@ -41,7 +41,7 @@ $rssTitle = "My RSS Feed";
 $rssLink = $baseURL . "/";
 $rssGenerator = $baseURL . "/";
 $rssDesc = "This is the RSS feed for my blog.";
-$rssCopyright = "Copyright 2002-2008";
+$rssCopyright = "Copyright 2009";
 $rssLang = "en";
 
 // Config variables for the editor:
