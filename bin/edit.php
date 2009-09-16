@@ -126,7 +126,7 @@ $upage = urlencode($page);
 if ( $page == "" )
 	$page = DEFAULT_PAGE;
 
-$filename = PAGES_PATH . "/$page.txt";
+$filename = PAGES_PATH . "/$page$inputFileExtension";
 
 if ( file_exists($filename) )
 {
@@ -239,7 +239,7 @@ else if ( $action == "all" )
 		if ( $file{0} == "." )
 			continue;
 
-		$file = preg_replace("/(.*?)\.txt/", "<a href=\"" . SELF . "/\\1\">\\1</a>", $file);
+		$file = preg_replace("/(.*?)$inputFileExtension/", "<a href=\"" . SELF . "/\\1\">\\1</a>", $file);
 		$html .= "<li>$file</li>\n";
 	}
 
@@ -256,7 +256,7 @@ else if ( $action == "all_name" )
 		if ( $file{0} == "." )
 			continue;
 
-		$file = preg_replace("/(.*?)\.txt/", "<a href=\"" . SELF . "/\\1\">\\1</a>", $file);
+		$file = preg_replace("/(.*?)$inputFileExtension/", "<a href=\"" . SELF . "/\\1\">\\1</a>", $file);
 		array_push($filelist, $file);
 	}
 
@@ -280,7 +280,7 @@ else if ( $action == "all_date" )
 		if ( $file{0} == "." )
 			continue;
 			
-		$filelist[preg_replace("/(.*?)\.txt/", "<a href=\"" . SELF . "/\\1\">\\1</a>", $file)] = filemtime(PAGES_PATH . "/$file");
+		$filelist[preg_replace("/(.*?)$inputFileExtension/", "<a href=\"" . SELF . "/\\1\">\\1</a>", $file)] = filemtime(PAGES_PATH . "/$file");
 	}
 
 	closedir($dir);
