@@ -335,7 +335,7 @@ $count3 = 0;
 
 foreach ( $pages as $filename => $moddate )
 {
-	$pubdate = date("D, d M Y H:i:s", $moddate) . $timezone;
+	$pubdate = date("D, d M Y H:i:s", $moddate) . ' ' . $timezone;
 
 	$bodyText = file_get_contents("$pagesDir/$filename");
 
