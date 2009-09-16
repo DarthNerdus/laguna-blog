@@ -8,7 +8,7 @@ echo '        <link>' . $rssLink . '</link>' . "\n";
 echo '        <description>' . $rssDesc . '</description>' . "\n";
 echo '        <language>' . $rssLang . '</language>' . "\n";
 echo '        <copyright>' . $rssCopyright . '</copyright>' . "\n";
-echo '        <lastBuildDate>' . date("D, d M Y H:i:s", time()) . $timezone . '</lastBuildDate>' . "\n";
+echo '        <pubDate>' . date("D, d M Y H:i:s", time()) . ' ' . $timezone . '</pubDate>' . "\n";
 echo '        <generator>' . $rssGenerator .'</generator>' . "\n";
 echo '        <docs>http://www.rssboard.org/rss-specification</docs>' . "\n";
 
